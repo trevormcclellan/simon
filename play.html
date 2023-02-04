@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simon&REG;</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Simon<sup>&REG;</sup></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="play.html">Play</a></li>
+                    <li><a href="scoreboard.html">Scoreboard</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <hr>
+        <section>
+            <h2>Play!</h2>
+            <p>Player: Mystery Player</p>
+            <div>
+                <label for="score">Score</label>
+                <input type="text" id="score" value="--" readonly />
+            </div>
+            <br>
+            <div>
+                <button>Reset</button>
+            </div>
+
+            <div>
+                <table>
+                  <tr>
+                    <td>
+                      <button>
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 100 100"
+                          height="100"
+                          width="100"
+                        >
+                          <!-- SVG
+                            M move <to x,y>
+                            Q quadratic curve <control point x,y> <to x,y>
+                        -->
+                          <path d="M 95,5 95,95 5,95 Q 5,5 95,5" fill="green" />
+                        </svg>
+                      </button>
+                    </td>
+                    <td>
+                      <button>
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 100 100"
+                          height="100"
+                          width="100"
+                        >
+                          <path d="M5,5 5,95 95,95 Q 95,5 5,5" fill="red" />
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button>
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 100 100"
+                          height="100"
+                          width="100"
+                        >
+                          <path d="M5,5 95,5 95,95 Q 5,95 5,5" fill="blue" />
+                        </svg>
+                      </button>
+                    </td>
+                    <td>
+                      <button>
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 100 100"
+                          height="100"
+                          width="100"
+                        >
+                          <path d="M95,5 5,5 5,95 Q 95,95 95,5" fill="yellow" />
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <p>
+            <span>Trevor McClellan</span><br>
+            <a href="https://github.com/trevormcclellan/simon">Github</a>
+        </p>
+    </footer>
+</body>
+
+</html>
