@@ -51,14 +51,14 @@
       </div>
       <div class="game">
         <div class="button-container">
-          <button class="button-top-left"></button>
-          <button class="button-top-right"></button>
-          <button class="button-bottom-left"></button>
-          <button class="button-bottom-right"></button>
+          <button class="button-top-left game-button" onclick="game.pressButton(this)"></button>
+          <button class="button-top-right game-button" onclick="game.pressButton(this)"></button>
+          <button class="button-bottom-left game-button" onclick="game.pressButton(this)"></button>
+          <button class="button-bottom-right game-button" onclick="game.pressButton(this)"></button>
           <div class="controls center">
             <div class="game-name">Simon<sup>&reg;</sup></div>
             <div class="score center">--</div>
-            <button class="btn btn-warning">Reset</button>
+            <button class="btn btn-warning" onclick="game.reset()">Reset</button>
           </div>
         </div>
       </div>
@@ -69,6 +69,7 @@
           <a class="text-reset" href="https://github.com/trevormcclellan/simon">Github</a>
       </div>
   </footer>
+  <script src="play.js"></script>
 </body>
 
 </html>
