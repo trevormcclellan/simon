@@ -24,9 +24,9 @@ class Button {
     }
 
     async play(volume = 1.0) {
-        this.sound.setVolume(volume);
+        this.sound.volume = volume;
         await new Promise((resolve) => {
-            this.sound.onended(resolve);
+            this.sound.onended = resolve;
             this.sound.play();
         })
     }
@@ -46,7 +46,7 @@ class Game {
         this.playerPlaybackPos = 0;
         this.mistakeSound = loadSound('error.mp3');
 
-        document.getElementsByClassName('game-button').forEach((el, i) => {
+        document.querySelectorAll('.game-button').forEach((el, i) => {
             if (i < btnDescriptions.length) {
                 this.buttons.set(el.id, new Button(btnDescriptions[i], el));
             }
