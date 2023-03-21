@@ -1,41 +1,50 @@
-function loadScores() {
+async function loadScores() {
     let scores = [];
-    const scoresStr = localStorage.getItem('scores');
-    if (scoresStr) {
-        scores = JSON.parse(scoresStr);
+    try {
+      // Get the latest high scores from the service
+      const response = await fetch('/api/scores');
+      scores = await response.json();
+  
+      // Save the scores in case we go offline in the future
+      localStorage.setItem('scores', JSON.stringify(scores));
+    } catch {
+      // If there was an error then just use the last saved scores
+      const scoresText = localStorage.getItem('scores');
+      if (scoresText) {
+        scores = JSON.parse(scoresText);
+      }
     }
+  
+    displayScores(scores);
+  }
 
-    const table = document.querySelector('#scores');
-
+  function displayScores(scores) {
+    const tableBodyEl = document.querySelector('#scores');
+  
     if (scores.length) {
-        for (const [i, score] of scores.entries()) {
-            const positionTdEl = document.createElement('td');
-            const nameTdEl = document.createElement('td');
-            const scoreTdEl = document.createElement('td');
-            const dateTdEl = document.createElement('td');
-
-            positionTdEl.innerText = i + 1;
-            nameTdEl.innerText = score.userName;
-            scoreTdEl.innerText = score.score;
-            dateTdEl.innerText = score.date;
-
-            const rowEl = document.createElement('tr');
-            rowEl.appendChild(positionTdEl);
-            rowEl.appendChild(nameTdEl);
-            rowEl.appendChild(scoreTdEl);
-            rowEl.appendChild(dateTdEl);
-
-            table.appendChild(rowEl);
-        }
-    }
-    else {
+      // Update the DOM with the scores
+      for (const [i, score] of scores.entries()) {
+        const positionTdEl = document.createElement('td');
+        const nameTdEl = document.createElement('td');
+        const scoreTdEl = document.createElement('td');
+        const dateTdEl = document.createElement('td');
+  
+        positionTdEl.textContent = i + 1;
+        nameTdEl.textContent = score.name;
+        scoreTdEl.textContent = score.score;
+        dateTdEl.textContent = score.date;
+  
         const rowEl = document.createElement('tr');
-        const tdEl = document.createElement('td');
-        tdEl.innerText = 'No scores yet';
-        tdEl.setAttribute('colspan', 4);
-        rowEl.appendChild(tdEl);
-        table.appendChild(rowEl);
+        rowEl.appendChild(positionTdEl);
+        rowEl.appendChild(nameTdEl);
+        rowEl.appendChild(scoreTdEl);
+        rowEl.appendChild(dateTdEl);
+  
+        tableBodyEl.appendChild(rowEl);
+      }
+    } else {
+      tableBodyEl.innerHTML = '<tr><td colSpan=4>No scores yet</td></tr>';
     }
-}
-
-loadScores();
+  }
+  
+  loadScores();
