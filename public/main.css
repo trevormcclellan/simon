@@ -166,6 +166,12 @@ body {
     width: 100%;
     height: 100%;
   }
+
+  #playerName {
+    color: rgb(118, 210, 130);
+    font-size: 1.5em;
+    padding: 0.5em;
+  }
   
   @media (max-height: 400px) {
     header {
