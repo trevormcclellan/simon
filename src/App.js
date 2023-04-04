@@ -7,7 +7,7 @@ import { Scores } from './scores/scores';
 import { About } from './about/about';
 import { AuthState } from './login/authState';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './app.css';
+import './App.css';
 
 function App() {
   const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
@@ -90,8 +90,8 @@ function App() {
 
       <footer className='bg-dark text-dark text-muted'>
         <div className='container-fluid'>
-          <span className='text-reset'>Author Name(s)</span>
-          <a className='text-reset' href='https://github.com/webprogramming260/simon-react'>
+          <span className='text-reset'>Trevor McClellan</span>
+          <a className='text-reset' href='https://github.com/trevormcclellan/simon'>
             Source
           </a>
         </div>

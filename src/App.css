@@ -1,50 +1,11 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-body {
+.body {
   display: flex;
   flex-direction: column;
   min-width: 375px;
 }
 
 header {
-  flex: 0 60px;
+  flex: 0 80px;
 }
 
 main {
@@ -53,13 +14,18 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background: linear-gradient(0deg, rgba(0,128,0,1) 0%, rgba(248,249,250,1) 40%);
 }
 
 footer {
-  flex: 0 20px;
-  background: rgb(0, 128, 0);
-  color: lightgray;
+  flex: 0 30px;
+}
+
+menu {
+  flex: 1;
+  display: flex;
+  /*  overwrite Bootstrap so the menu does not wrap */
+  flex-direction: row !important;
+  list-style: none;
 }
 
 .navbar-brand {
@@ -67,169 +33,15 @@ footer {
   border-bottom: solid rgb(182, 182, 182) thin;
 }
 
+menu .nav-item {
+  padding: 0 0.3em;
+}
+
 footer a {
   float: right;
 }
 
-.center {
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
-
-#count {
-  color: rgb(246, 239, 158);
-}
-
-.players {
-  flex: 1;
-  width: 100%;
-  padding: 0.5em;
-}
-
-.player-name {
-  color: rgb(118, 190, 210);
-}
-
-.game {
-  background: black;
-  border-radius: 50%;
-  box-shadow: 0 0 20px 5px rgb(69, 69, 69);
-  width: 80vw;
-  height: 80vw;
-  position: absolute;
-  min-width: 350px;
-  min-height: 350px;
-  max-width: min(80vmin, 1000px);
-  max-height: min(80vmin, 1000px);
-}
-
-.button-container {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.button-top-left {
-  border-radius: 100% 0 0 0;
-  margin: 20px 0 0 20px;
-  background-color: green;
-  border: thick solid rgb(36, 53, 0);
-}
-
-.button-top-right {
-  border-radius: 0 100% 0 0;
-  margin: 20px 20px 0 0;
-  background-color: red;
-  border: thick solid rgb(83, 12, 12);
-}
-
-.button-bottom-left {
-  border-radius: 0 0 0 100%;
-  margin: 0 0 20px 20px;
-  background-color: yellow;
-  border: thick solid rgb(130, 124, 13);
-}
-
-.button-bottom-right {
-  border-radius: 0 0 100% 0;
-  margin: 0 20px 20px 0;
-  background-color: blue;
-  border: thick solid rgb(27, 14, 100);
-}
-
-.controls {
-  position: absolute;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  background-color: black;
-  padding: 2em;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-}
-
-.game-name {
-  font-size: 2em;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
-
-.score {
-  position: absolute;
-  text-align: center;
-  font-size: 20px;
-  font-family: monospace;
-  font-weight: bold;
-  color: red;
-  cursor: default;
-  width: 50px;
-  height: 30px;
-  border-radius: 10px;
-  border: solid thin rgb(117, 0, 0);
-  background-color: #300;
-}
-
-.picture-box {
-  height: calc(100px + 1em);
-  margin-bottom: 1em;
-  padding: 0.5em;
-  background: rgb(86, 89, 93);
-  border-radius: 5px;
-}
-
-.quote-box {
-  margin-top: 1em;
-  padding: 0.5em;
-  border-radius: 5px;
-}
-
-.quote {
-  font-style: italic;
-}
-
-.author {
-  font-weight: bold;
-  text-align: right;
-}
-
-.author::before {
-  content: " - ";
-}
-
-#picture img {
-  width: 100%;
-  height: 100%;
-}
-
-#playerName {
-  color: rgb(118, 210, 130);
-  font-size: 1.5em;
-  padding: 0.5em;
-}
-
-#player-messages {
-  padding-top: 0.25em;
-  opacity: 0.7;
-}
-
-.event {
-  color: rgb(69, 69, 69);
-}
-
-.player-event {
-  color: rgb(3, 181, 45);
-}
-
-.system-event {
-  color: rgb(221, 148, 40);
-}
-
-@media (max-height: 400px) {
+@media (max-height: 600px) {
   header {
     display: none;
   }
